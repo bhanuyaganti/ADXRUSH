@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Ad Slot | ADXRUSH</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #0d0d0d;
+      --primary: #ffd700;
+      --text: #fff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    header {
+      background: #000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .logo .x {
+      color: var(--primary);
+      font-size: 2.5rem;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 600;
+    }
+    .container {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 30px;
+      background: #1a1a1a;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00000088;
+    }
+    h2 {
+      color: var(--primary);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    select, input, button, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      background: var(--primary);
+      color: #000;
+      margin-top: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #fff000;
+    }
+    .slot-picker {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .slot {
+      padding: 10px;
+      background: #333;
+      border-radius: 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .slot:hover {
+      background: var(--primary);
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      color: #aaa;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">ADX<span class="x">R</span>USH</div>
+  <nav>
+    <a href="adxrush_futuristic.html">Home</a>
+    <a href="#">Dashboard</a>
+    <a href="#">Login</a>
+  </nav>
+</header>
+
+<div class="container">
+  <h2>Book Your Ad Slot</h2>
+  <label for="city">Select City</label>
+  <select id="city">
+    <option>Hyderabad</option>
+    <option>Vizag</option>
+    <option>Vijayawada</option>
+    <option>Tirupati</option>
+    <option>Guntur</option>
+    <option>Bengaluru</option>
+    <option>Chennai</option>
+    <option>Mumbai</option>
+    <option>Pune</option>
+    <option>Delhi</option>
+  </select>
+
+  <label for="screen">Screen Type</label>
+  <select id="screen">
+    <option>Shop LED</option>
+    <option>Car Top Display</option>
+    <option>Auto LED</option>
+  </select>
+
+  <label>Select Time Slot</label>
+  <div class="slot-picker">
+    <div class="slot">9am - 12pm</div>
+    <div class="slot">12pm - 3pm</div>
+    <div class="slot">3pm - 6pm</div>
+    <div class="slot">6pm - 9pm</div>
+    <div class="slot">9pm - 12am</div>
+  </div>
+
+  <label for="upload">Upload Your Ad (Image/Video)</label>
+  <input type="file" id="upload" />
+  <div id="preview"></div>
+
+  <label for="upi">Enter UPI ID for Payment</label>
+  <input type="text" id="upi" placeholder="yourupi@bank" />
+
+  <button>Submit & Confirm Booking</button>
+</div>
+
+<footer>
+  Contact: 9849986504 | © 2025 ADXRUSH
+</footer>
+
+</body>
+</html>
+
+<script>
+  const fileInput = document.getElementById("upload");
+  const previewContainer = document.getElementById("preview");
+
+  fileInput.addEventListener("change", function () {
+    const file = fileInput.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const url = e.target.result;
+      if (file.type.startsWith("image")) {
+        previewContainer.innerHTML = '<img src="' + url + '" style="width:100%;max-height:300px;border-radius:8px;margin-top:15px;" />';
+      } else if (file.type.startsWith("video")) {
+        previewContainer.innerHTML = '<video controls style="width:100%;max-height:300px;border-radius:8px;margin-top:15px;"><source src="' + url + '" type="' + file.type + '"></video>';
+      } else {
+        previewContainer.innerHTML = '<p style="margin-top:10px;">Preview not available for this file type.</p>';
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+</script>
