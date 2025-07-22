@@ -1,0 +1,48 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+  color: #222;
+}
+header {
+  background: #fff;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.x {
+  color: #f1c40f;
+  font-size: 1.5em;
+}
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #444;
+  font-weight: bold;
+}
+main {
+  padding: 20px;
+}
+.floating-contact {
+  position: fixed;
+  right: 15px;
+  bottom: 20px;
+  background: #f1c40f;
+  color: #000;
+  padding: 12px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.map {
+  margin-top: 30px;
+}
